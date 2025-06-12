@@ -225,6 +225,13 @@ body > header > div {
     align-items: center;
 }
 
+@media (max-width: 391px) {
+    .hero-avatar {
+        margin-top: 4rem;
+    }
+
+}
+
 @media (max-width: 768px) {
     .hero .container {
         flex-direction: column-reverse;

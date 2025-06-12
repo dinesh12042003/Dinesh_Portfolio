@@ -1,25 +1,30 @@
 /* Contact Section */
 .contact {
-    padding: 5rem 0;
+    padding: 3rem 1rem;
     min-height: calc(100vh - 80px);
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5rem;
 }
 
 .contact-info {
-    position: sticky;
-    top: 100px;
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .contact-description {
     margin-bottom: 2rem;
     opacity: 0.8;
     line-height: 1.6;
+    font-size: 1rem;
 }
 
 .contact-methods {
@@ -37,6 +42,7 @@
     font-size: 1.5rem;
     color: var(--primary);
     margin-top: 0.3rem;
+    flex-shrink: 0;
 }
 
 .contact-item h3 {
@@ -50,6 +56,7 @@
     transition: color 0.3s ease;
     opacity: 0.8;
     font-size: 0.95rem;
+    word-break: break-all;
 }
 
 .contact-item a:hover {
@@ -60,14 +67,17 @@
 /* Contact Form */
 .contact-form {
     background: var(--card-bg);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-title {
     margin-bottom: 1.5rem;
     color: var(--primary);
+    font-size: 1.4rem;
 }
 
 .form-group {
@@ -82,17 +92,19 @@
     transform: translateY(-50%);
     color: var(--primary);
     opacity: 0.5;
+    font-size: 1.1rem;
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
+    width: calc(100% - 3rem);
     padding: 0.8rem 1rem 0.8rem 2.5rem;
     background: var(--bg-color);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     color: var(--text-color);
     font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
 }
 
 .form-group textarea {
@@ -109,35 +121,224 @@
 
 .btn-submit {
     width: 100%;
+    padding: 0.9rem;
+    background: var(--primary);
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .contact-content {
-        grid-template-columns: 1fr;
+.btn-submit:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background: var(--card-bg);
+    padding: 3rem 0 1.5rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footer-brand {
+    margin-bottom: 1rem;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.footer-tagline {
+    opacity: 0.8;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    opacity: 0.8;
+}
+
+.social-links a:hover {
+    color: var(--primary);
+    opacity: 1;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-column a:hover {
+    color: var(--primary);
+}
+
+.footer-column i {
+    font-size: 1.1rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+    opacity: 0.7;
+    font-size: 0.85rem;
+}
+
+.theme-toggle-footer {
+    display: none;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 99;
+    box-shadow: 0 5px 15px rgba(110, 87, 224, 0.3);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--secondary);
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 576px) {
+    .contact {
+        padding: 4rem 1.5rem;
     }
     
-    .contact-info {
-        position: static;
+    .contact-form {
+        padding: 2rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 768px) {
+    .contact-content {
+        flex-direction: row;
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-top: 5rem;
+    }
+    
+    .contact-info {
+        width: 40%;
+        padding: 0;
+    }
+    
     .contact-form {
-        padding: 1.5rem;
+        width: 60%;
     }
     
-    .form-group input,
-    .form-group textarea {
-        padding-left: 2rem;
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
     }
     
-    .form-group i {
-        left: 0.7rem;
-        font-size: 0.9rem;
+    .footer-brand {
+        width: 40%;
+    }
+    
+    .footer-links {
+        width: 55%;
+    }
+    
+    .theme-toggle-footer {
+        display: block;
+    }
+}
+
+@media (min-width: 992px) {
+    .contact-info {
+        position: sticky;
+        top: 100px;
+    }
+    
+    .back-to-top {
+        bottom: 2rem;
+        right: 2rem;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
     }
 }
